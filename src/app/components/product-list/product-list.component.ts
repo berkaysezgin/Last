@@ -81,11 +81,16 @@ get productListItems(): any[] {
  // GET LIST PRODUCTS
   getListProducts(){
     this.productService.getList().subscribe((response)=>{
+      // I use Timeout for the seeing spinner
       setTimeout(() => {
         this.products=response;
-      
+    if(!response){
+      this.isLoading=false;
+    }
+    else{
       this.isLoading=true;
-      }, 1000);
+    }
+      } , 500);
       
     })
   }

@@ -86,14 +86,13 @@ lastPage!:number;
         // this.pagination.pageSize = response.pageSize;
         // this.lastPage = response.lastPage;
         //: Json-server projelerinde pagination bilgileri header içerisinde gelmektedir. Header üzerinden atama yapmamız gerekmektedir. Bu yöntem pek kullanılmayacağı için, bu şekilde geçici bir çözüm ekleyebiliriz.
-    
+        
         if (response.length < this.pagination.pageSize) {
           if(response.length==0)
            this.pagination.page = this.pagination.page - 1;
           this.lastPage = this.pagination.page;
-          
-          
-        }
+          this.products=response;
+           }
         
         
 
@@ -141,18 +140,19 @@ lastPage!:number;
     //: query params'ları almak adına activatedRoute.queryParams kullanılır.
     this.activatedRoute.queryParams.subscribe((queryParams) => {
         this.pagination.page = 1;
+     
         if(queryParams['name_like']){
          
           this.filters['name_like'] = queryParams['name_like'];
         }
       
         else
-      if(!(queryParams['name_like'])&&
-      this.searchProductNameInput !== null){
+      if(!(queryParams['name_like'])){
         
         delete this.filters['name_like'];
        
       }
+   
       this.getProductsList({
         pagination: this.pagination,
         filters: this.filters,

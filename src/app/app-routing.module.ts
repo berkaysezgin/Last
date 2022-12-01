@@ -8,6 +8,7 @@ const routes: Routes = [
 {path:'',pathMatch:'full',component:HomePageComponent},
 {path:'category/:categoryId',component:HomePageComponent},
 {path:'login',component:LoginPageComponent},
+{ path: 'products?_page=:page&_pageSize=:pageSize', component: HomePageComponent },
 ];
 
 @NgModule({

@@ -20,4 +20,18 @@ return this.httpClient.get<Category[]>(this.controllerUrl);
   getById(id:number):Observable<Category>{
     return this.httpClient.get<Category>(`${this.controllerUrl}/${id}`)
   }
+  add(request:Category): Observable<Category>{
+    return this.httpClient.post<Category>(this.controllerUrl, request)
+        }
+        update(request: Category): Observable<Category> {
+          return this.httpClient.put<Category>(
+            `${this.controllerUrl}/${request.id}`,
+            request
+          );
+        }
+        delete(id: number): Observable<Category> {
+          return this.httpClient.delete<Category>(
+            `${this.controllerUrl}/${id}`
+          );
+        }
 }

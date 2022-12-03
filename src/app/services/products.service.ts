@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ProductsService {
   public controllerUrl:string=`${environment.apiUrl}/products`;
+ 
   
   constructor(private httpClient:HttpClient) {}
     //undefined ve null ikilik sistemde karşılıkları 00000000 olucak
@@ -31,7 +32,26 @@ export class ProductsService {
       return this.httpClient.get<Products[]>(this.controllerUrl,{
         params:queryParams,
       });
-    };
-   }
-   //http://localhost:3000/products?_page=1&limit=9
+    }
+getById(productId:number):Observable<Products>{
+  return this.httpClient.get<Products>(`${this.controllerUrl}/${productId}`)
+}
+
+
+    add(request:Products): Observable<Products>{
+return this.httpClient.post<Products>(this.controllerUrl, request)
+    }
+    update(request: Products): Observable<Products> {
+      return this.httpClient.put<Products>(
+        `${this.controllerUrl}/${request.id}`,
+        request
+      );
+    }
+    delete(productId: number): Observable<Products> {
+      return this.httpClient.delete<Products>(
+        `${this.controllerUrl}/${productId}`
+      );
+    }
+        }
+ 
 

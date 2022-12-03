@@ -1,0 +1,33 @@
+<div>
+    <h1 class="display-6">Category Form List
+     
+       <a class="btn btn-primary" href="http://localhost:4200/dashboard/categories/add" role="button">Add Category</a>
+    </h1>
+    </div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Update</th>
+        
+            
+           
+          </tr>
+        </thead>
+        <tbody>
+            <ng-template ngFor let-category [ngForOf]="categories"
+           >
+          <tr>
+            <th scope="row">{{category.id}}</th>
+            <td>{{category.name}}</td>
+            <td>{{category.description}}</td>
+            
+            
+            <a class="btn btn-primary" href="http://localhost:4200/dashboard/categories/edit/{{category.id}}" role="button">Update</a>
+    
+          </tr>
+        </ng-template>
+        </tbody>
+      </table>

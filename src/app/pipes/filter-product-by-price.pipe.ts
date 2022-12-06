@@ -20,7 +20,7 @@ export class FilterProductByPricePipe implements PipeTransform {
       let filterProductByPrice =products.filter((p)=>p.unitPrice>=(unitPrice));
     return filterProductByPrice;
     }
-    if(operator=='le'){
+    if(operator=='lte'){
       let filterProductByPrice =products.filter((p)=>p.unitPrice<=(unitPrice));
     return filterProductByPrice;
     }

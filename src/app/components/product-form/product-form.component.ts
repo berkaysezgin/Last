@@ -2,9 +2,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { CategoriesService } from 'src/app/services/categories.service';
+import { Category } from 'src/app/models/category';
 import { Products } from 'src/app/models/products';
 import { ProductsService } from 'src/app/services/products.service';
+import { Supplier } from 'src/app/models/supplier';
+import { SuppliersService } from 'src/app/services/suppliers.service';
 import { ToastrService } from 'ngx-toastr';
+import { subscribeOn } from 'rxjs';
 
 @Component({
   selector: 'app-product-form',
@@ -14,7 +19,8 @@ import { ToastrService } from 'ngx-toastr';
 export class ProductFormComponent implements OnInit {
   productForm!: FormGroup;
   productToUpdate: Products | null = null;
-
+  categories:Category[]=[];
+  suppliers:Supplier[]=[];
   get isEditting(): boolean {
     return this.productToUpdate !== null;
   }
@@ -24,7 +30,9 @@ export class ProductFormComponent implements OnInit {
     private productsService: ProductsService,
     private toastrService: ToastrService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private categoriesService:CategoriesService,
+    private suppliersService:SuppliersService,
   ) {
     // this.productForm = new FormGroup({
     //   name: new FormControl(''),
@@ -32,8 +40,19 @@ export class ProductFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getCategories();
+    this.getSuppliers();
     this.createProductForm();
     this.getProductIdFromRoute();
+  }
+  getSuppliers() {
+    this.suppliersService.getList().subscribe((response:Supplier[])=>
+    this.suppliers=response)
+  }
+  getCategories() {
+    this.categoriesService.getList().subscribe((response:Category[])=>{
+    this.categories=response;
+  });
   }
 
   createProductForm(): void {
@@ -90,6 +109,8 @@ export class ProductFormComponent implements OnInit {
     const request: Products = {
       //: Backend'in product add endpoint'ine gönderilecek olan request modeli.
       ...this.productForm.value,
+      categoryId: Number(this.productForm.value.categoryId),
+      supplierId:Number(this.productForm.value.supplierId),
       name: this.productForm.value.name.trim(), //= ...this.productForm.value ile gelen 'name' değerinin üzerin tekrar yazıyoruz (overwrite).
     };
 

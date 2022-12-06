@@ -49,7 +49,11 @@
     </ng-container>
 
     <ng-template #showProductList>
-      <ng-template ngFor let-product [ngForOf]="products">
+      <ng-template
+      ngFor
+      let-product
+      [ngForOf]="products | filterProductByPrice : 18 : 'gt'"
+    >
         <!-- Sanal, html tarafında render'lanmayan veya bir etikete karşılık gelmeyen bir etiket olacak. -->
 
         <!--# *ngIf -->
@@ -57,14 +61,10 @@
           *ngIf="isProductCardShow(product); else productDiscontinued"
           [class]="productCardClass"
         >
-          <div class="card-body">
-            <h5 class="card-title">{{ product.name }}</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Add to Cart</a>
-          </div>
+        <app-product-card
+        (onAddtoCartClick)="addToCartClick($event)"
+        [product]="product"
+      ></app-product-card>
         </div>
         <!--* list istem -->
 

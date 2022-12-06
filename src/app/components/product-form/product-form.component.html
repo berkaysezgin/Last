@@ -1,6 +1,8 @@
 <h1 class="display-6">Product Form</h1>
 
 <!--# Reactive Form -->
+<!-- Submit eventEmitter'ı form submit olduğunda eşitliğin sağında verilen fonksiyonu haberdar eder
+(çalıştırır) -->
 <form [formGroup]="productForm" (submit)="onProductFormSubmit()">
   <div class="mb-3">
     <label for="nameInput" class="form-label">Name</label>
@@ -15,24 +17,26 @@
 
   <div class="mb-3">
     <label for="categoryInput" class="form-label">Category</label>
-    <input
-      formControlName="categoryId"
-      type="number"
-      id="categoryInput"
-      class="form-control"
-      placeholder="Enter category id"
-    />
+    <select class="form-select" formControlName="categoryId" id="categoryInput">
+      <option disabled value="0">Seçiniz</option>
+      <!-- Display Name - Shown Name -->
+      <!-- Kategorileri al, option'da iterate et ve valuesına idsini, display nameine nameini yazdır -->
+      <option *ngFor="let category of categories" [value]="category.id">
+        {{ category.name }}
+      </option>
+    </select>
   </div>
 
   <div class="mb-3">
     <label for="supplierInput" class="form-label">Supplier</label>
-    <input
-      formControlName="supplierId"
-      type="number"
-      id="supplierInput"
-      class="form-control"
-      placeholder="Enter supplier id"
-    />
+    <select class="form-select" formControlName="supplierId" id="supplierInput">
+      <option disabled value="0">Seçiniz</option>
+      <!-- Display Name - Shown Name -->
+      <!-- Kategorileri al, option'da iterate et ve valuesına idsini, display nameine nameini yazdır -->
+      <option *ngFor="let supplier of suppliers" [value]="supplier.id">
+        {{ supplier.companyName }}
+      </option>
+    </select>
   </div>
 
   <!--TODO: Select Menu ile category'leri opsiyonlar olarak listlemek ve seçtiği category'in id'sini kaydetmek -->

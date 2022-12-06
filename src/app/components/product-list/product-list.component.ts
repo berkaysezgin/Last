@@ -99,6 +99,12 @@ export class ProductListComponent implements OnInit {
       },
     });
   }
+  addToCartClick(product: Products) {
+    console.log(
+      'ProductListComponentden sepete eklenmesi istenen ürün:',
+      product
+    );
+  }
 
   getCategoryIdFromRoute(): void {
     //: route params'ları almak adına activatedRoute.params kullanılır.

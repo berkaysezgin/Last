@@ -19,10 +19,13 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NgModule } from '@angular/core';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { ProductFormPageComponent } from './pages/product-form-page/product-form-page.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ToastrModule } from 'ngx-toastr';
+import { FilterProductPipe } from './pipes/filter-product.pipe';
+import { FilterProductByPricePipe } from './pipes/filter-product-by-price.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { ToastrModule } from 'ngx-toastr';
      DashboardProductsPageComponent,
      DashboardCategoriesListComponent,
      CategoryFormPageComponent,
-     DashboardCategoriesPageComponent
+     DashboardCategoriesPageComponent,
+     ProductCardComponent,
+     FilterProductPipe,
+     FilterProductByPricePipe,
    
      
 

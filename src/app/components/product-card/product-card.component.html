@@ -1,0 +1,10 @@
+<div class="card-body">
+    <h5 class="card-title">{{ product.name }}</h5>
+    <p class="card-text">
+      {{ product.quantityPerUnit |uppercase}}
+  
+    </p>
+    <p>{{product.unitPrice| currency:"₺":"symbol" }}</p>
+    <p>{{ dateNow |date:"M/d/yy"}}</p>
+    <a (click)="addToCartClick()" class="btn btn-primary">Add to Cart</a>
+  </div>

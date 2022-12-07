@@ -25,7 +25,7 @@ export class ProductListComponent implements OnInit {
     pageSize: 9,
   };
   lastPage?: number;
-  filters: any = {productFilterPrice:0,filtersInput:1};
+  filters: any = {productFilterPrice:0,filtersInput:0};
 
 
   //# Client Side Filter

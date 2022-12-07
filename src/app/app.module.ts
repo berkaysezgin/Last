@@ -26,6 +26,8 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 import { ProductFormPageComponent } from './pages/product-form-page/product-form-page.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ToastrModule } from 'ngx-toastr';
+import { HighlightDirective } from './directives/highlight.directive';
+import { ButtonDirective } from './directives/button.directive';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { ToastrModule } from 'ngx-toastr';
      ProductCardComponent,
      FilterProductPipe,
      FilterProductByPricePipe,
+     HighlightDirective,
+     ButtonDirective,
     
    
      

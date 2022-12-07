@@ -12,11 +12,37 @@
       (change)="onSearchProductNameChange($event)"
       [(ngModel)]="searchProductNameInput"
     />
+   
     <!-- [value]="searchProductNameInput" -->
     <!--: $event ilgili event'in özelliklerinin bulunduğu html tarafından geçilen js objesi angular tarafından geçilecektir. -->
   </div>
+  
 </div>
-
+<ng-container>
+  <div class="col-4 mx-1">
+<input
+type="number"
+class="form-control"
+id="productPriceFilterInput"
+[(ngModel)]="filters.productFilterPrice"
+/>
+<form [formGroup]="filterByWhatForm" (change)="filtersByWhat($event)">
+<select 
+  formControlName="filterByPrice"  
+  class="form-select"
+  id="filterInput"
+  >
+  
+  <option value="1">Equal</option>
+  <option value="4" >Greater Than</option>
+  <option value="5">Lower Than</option>
+  <option value="3">Greater and Equal Than</option>
+  <option value="2">Lower and Equal Than</option>
+ 
+</select>
+</form>
+</div>
+</ng-container>
 <ng-template #loadingSpinner>
   <div class="d-flex justify-content-center align-items-center h-100">
     <app-loading-spinner></app-loading-spinner>
@@ -52,8 +78,13 @@
       <ng-template
       ngFor
       let-product
-      [ngForOf]="products | filterProductByPrice : 18 : 'gt'"
-    >
+      [ngForOf]="
+      products
+        | filterProduct : searchProductNameInput ?? ''
+        | filterProductByPrice : filters.productFilterPrice : filtersInput
+    "
+  >
+    
         <!-- Sanal, html tarafında render'lanmayan veya bir etikete karşılık gelmeyen bir etiket olacak. -->
 
         <!--# *ngIf -->

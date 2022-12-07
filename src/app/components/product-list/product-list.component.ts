@@ -1,10 +1,13 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
+import { FormGroup } from '@angular/forms';
 import { GetListOptionsType } from './../../models/get-list-options';
+import { NumberSymbol } from '@angular/common';
 import { Pagination } from 'src/app/models/pagination';
 import { Products } from 'src/app/models/products';
 import { ProductsService } from 'src/app/services/products.service';
+import { sequenceEqual } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -13,7 +16,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductListComponent implements OnInit {
   productCardClass: string = 'card col-3 ms-3 mb-3';
-
+  filterByWhatForm!: FormGroup;
   products!: Products[];
   // selectedProductCategoryId: number | null = null;
   searchProductNameInput: string | null = null;
@@ -22,7 +25,9 @@ export class ProductListComponent implements OnInit {
     pageSize: 9,
   };
   lastPage?: number;
-  filters: any = {};
+  filters: any = {productFilterPrice:0};
+  filtersInput:any=1;
+
   //# Client Side Filter
   // get filteredProducts(): Product[] {
   //   let filteredProducts = this.products;
@@ -191,4 +196,6 @@ export class ProductListComponent implements OnInit {
     this.pagination.page = 1;
     this.lastPage = undefined;
   }
+  filtersByWhat(event:Event){
+    this.filtersInput=Number((event.target as HTMLInputElement).value);}
 }

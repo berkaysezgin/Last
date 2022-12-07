@@ -12,6 +12,8 @@ import { DashboardCategoriesListComponent } from './components/dashboard-categor
 import { DashboardCategoriesPageComponent } from './pages/dashboard-categories-page/dashboard-categories-page.component';
 import { DashboardProductsListComponent } from './components/dashboard-products-list/dashboard-products-list.component';
 import { DashboardProductsPageComponent } from './pages/dashboard-products-page/dashboard-products-page.component';
+import { FilterProductByPricePipe } from './pipes/filter-product-by-price.pipe';
+import { FilterProductPipe } from './pipes/filter-product.pipe';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
@@ -24,8 +26,6 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 import { ProductFormPageComponent } from './pages/product-form-page/product-form-page.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ToastrModule } from 'ngx-toastr';
-import { FilterProductPipe } from './pipes/filter-product.pipe';
-import { FilterProductByPricePipe } from './pipes/filter-product-by-price.pipe';
 
 @NgModule({
   declarations: [
@@ -49,6 +49,7 @@ import { FilterProductByPricePipe } from './pipes/filter-product-by-price.pipe';
      ProductCardComponent,
      FilterProductPipe,
      FilterProductByPricePipe,
+    
    
      
 

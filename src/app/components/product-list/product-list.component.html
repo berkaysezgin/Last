@@ -81,7 +81,7 @@ id="productPriceFilterInput"
       [ngForOf]="
       products
         | filterProduct : searchProductNameInput ?? ''
-        | filterProductByPrice : filters.productFilterPrice : filtersInput
+        | filterProductByPrice : filters.productFilterPrice : filters.filtersInput
     "
   >
     

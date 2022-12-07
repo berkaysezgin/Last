@@ -25,8 +25,8 @@ export class ProductListComponent implements OnInit {
     pageSize: 9,
   };
   lastPage?: number;
-  filters: any = {productFilterPrice:0};
-  filtersInput:any=1;
+  filters: any = {productFilterPrice:0,filtersInput:1};
+
 
   //# Client Side Filter
   // get filteredProducts(): Product[] {
@@ -197,5 +197,5 @@ export class ProductListComponent implements OnInit {
     this.lastPage = undefined;
   }
   filtersByWhat(event:Event){
-    this.filtersInput=Number((event.target as HTMLInputElement).value);}
+    this.filters.filtersInput=Number((event.target as HTMLInputElement).value);}
 }

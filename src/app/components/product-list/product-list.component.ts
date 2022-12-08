@@ -114,7 +114,9 @@ export class ProductListComponent implements OnInit {
       product
     );
   }
+  addToStockClick(product:Products){
 
+  }
   getCategoryIdFromRoute(): void {
     //: route params'ları almak adına activatedRoute.params kullanılır.
     this.activatedRoute.params.subscribe((params) => {
@@ -202,4 +204,9 @@ export class ProductListComponent implements OnInit {
   }
   filtersByCategoryId(event:Event){
     this.filters.filterByCategoryId=Number((event.target as HTMLInputElement).value);}
-}
+    callAlert(text:string){
+      alert(text);
+    }
+
+
+  }

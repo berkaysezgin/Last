@@ -196,6 +196,7 @@
           *ngIf="isProductCardShow(product); else productDiscontinued"
           [class]="productCardClass"
         >
+        
         <app-product-card
         (onAddtoCartClick)="addToCartClick($event)"
         [product]="product"
@@ -204,13 +205,13 @@
         <!--* list istem -->
 
         <ng-template #productDiscontinued>
-          <div
-            class="{{
-              productCardClass
-            }} d-flex justify-content-center align-items-center"
+          <div class="{{  productCardClass}} ">
+          <app-discontinued-product-card
+          (stockAlert)="callAlert($event)"
+          [product]="product"
           >
-            <p>{{ product.name }} ürünü şuan satılmıyor.</p>
-          </div>
+        </app-discontinued-product-card>
+      </div>
         </ng-template>
       </ng-template>
     </ng-template>

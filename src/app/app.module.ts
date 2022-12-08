@@ -31,6 +31,7 @@ import { ButtonDirective } from './directives/button.directive';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FilterCategoryIdPipe } from './pipes/filter-category-id.pipe';
 import { FilterDiscontinuedPipe } from './pipes/filter-discontinued.pipe';
+import { DiscontinuedProductCardComponent } from './components/discontinued-product-card/discontinued-product-card.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { FilterDiscontinuedPipe } from './pipes/filter-discontinued.pipe';
      FilterPipe,
      FilterCategoryIdPipe,
      FilterDiscontinuedPipe,
+     DiscontinuedProductCardComponent,
     
    
      

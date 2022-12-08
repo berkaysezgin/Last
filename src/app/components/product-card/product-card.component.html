@@ -4,7 +4,7 @@
       {{ product.quantityPerUnit |uppercase}}
   
     </p>
-    <button type="button" class="btn" [appButton]="'btn-primary'">Primary</button>
+    <button type="button" class="btn" [appButton]="'btn-secondary'">Primary</button>
     <p [appHighlight]="'blue'"> 
     <p>{{product.unitPrice| currency:"₺":"symbol" }}</p>
     <p>{{ dateNow |date:"M/d/yy"}}</p>

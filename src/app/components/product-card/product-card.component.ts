@@ -10,7 +10,7 @@ import { Products } from 'src/app/models/products';
 export class ProductCardComponent {
   dateNow:Date=new Date();
   color: string = 'yellow';
-@Input() product!:Products;
+@Input() product!:any;
 @Output() onAddtoCartClick=new EventEmitter<Products>();
 
 addToCartClick(){

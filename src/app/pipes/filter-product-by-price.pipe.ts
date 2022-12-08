@@ -9,26 +9,26 @@ export class FilterProductByPricePipe implements PipeTransform {
   transform(
     products: Products[],
     price: number,
-    operator: 2 | 3| 4 | 5 | 1 = 1
+    operator: 'gt' | 'lt' | 'gte' | 'lte' | 'eq' = 'eq'
   ): Products[] {
     if (price <= 0) return products;
     let filteredProducts: Products[] = products;
 
     //filteredProducts => içini doldurma
     switch (operator) {
-      case 1:
+      case 'eq':
         filteredProducts = products.filter((p) => p.unitPrice == price);
         break;
-      case 2:
+      case 'lte':
         filteredProducts = products.filter((p) => p.unitPrice <= price);
         break;
-      case 3:
+      case 'gte':
         filteredProducts = products.filter((p) => p.unitPrice >= price);
         break;
-      case 4:
+      case 'gt':
         filteredProducts = products.filter((p) => p.unitPrice > price);
         break;
-      case 5:
+      case 'lt':
         filteredProducts = products.filter((p) => p.unitPrice < price);
         break;
     }

@@ -28,6 +28,9 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ToastrModule } from 'ngx-toastr';
 import { HighlightDirective } from './directives/highlight.directive';
 import { ButtonDirective } from './directives/button.directive';
+import { FilterPipe } from './pipes/filter.pipe';
+import { FilterCategoryIdPipe } from './pipes/filter-category-id.pipe';
+import { FilterDiscontinuedPipe } from './pipes/filter-discontinued.pipe';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,9 @@ import { ButtonDirective } from './directives/button.directive';
      FilterProductByPricePipe,
      HighlightDirective,
      ButtonDirective,
+     FilterPipe,
+     FilterCategoryIdPipe,
+     FilterDiscontinuedPipe,
     
    
      

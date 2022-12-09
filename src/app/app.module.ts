@@ -32,6 +32,9 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { FilterCategoryIdPipe } from './pipes/filter-category-id.pipe';
 import { FilterDiscontinuedPipe } from './pipes/filter-discontinued.pipe';
 import { DiscontinuedProductCardComponent } from './components/discontinued-product-card/discontinued-product-card.component';
+import { IfNotDirective } from './directives/if-not.directive';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { TodoItemComponent } from './components/todo-item/todo-item.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +64,9 @@ import { DiscontinuedProductCardComponent } from './components/discontinued-prod
      FilterCategoryIdPipe,
      FilterDiscontinuedPipe,
      DiscontinuedProductCardComponent,
+     IfNotDirective,
+     TodoListComponent,
+     TodoItemComponent,
     
    
      

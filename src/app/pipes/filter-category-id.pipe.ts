@@ -10,7 +10,7 @@ export class FilterCategoryIdPipe implements PipeTransform {
   transform(products: Filter[], categoryId:number,discontinued: boolean=false,name:string,price:number,
     operator: 'gt' | 'lt' | 'gte' | 'lte' | 'eq' = 'eq' ):Filter[]  {
       let filteredProducts: Filter[] = products;
-
+//filter modeli yerine products modeli
 
       if(price >=0 )  {
         // Name

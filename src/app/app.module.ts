@@ -3,6 +3,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthorizationInterceptor } from './interceptors/authorization.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { ButtonDirective } from './directives/button.directive';
@@ -24,11 +25,13 @@ import { FilterProductPipe } from './pipes/filter-product.pipe';
 import { HighlightDirective } from './directives/highlight.directive';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { IfNotDirective } from './directives/if-not.directive';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NgModule } from '@angular/core';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { OverlayLoadingComponent } from './components/overlay-loading/overlay-loading.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { ProductFormPageComponent } from './pages/product-form-page/product-form-page.component';
@@ -68,6 +71,7 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
      IfNotDirective,
      TodoListComponent,
      TodoItemComponent,
+     OverlayLoadingComponent,
   ], // HTML tarafındaki angular bileşenlerini tanımlar
   imports: [
      BrowserModule,
@@ -80,7 +84,11 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
      BrowserAnimationsModule, 
      ToastrModule.forRoot(), 
   ], //ANgular modülleri import edeceğimiz yer
-  providers: [{provide:HTTP_INTERCEPTORS,useClass:DateInterceptor,multi:true}], // IoC Container'daki Dependency Injection'ları tanımlar
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:DateInterceptor,multi:true},
+    {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true},
+    {provide:HTTP_INTERCEPTORS,useClass:AuthorizationInterceptor,multi:true}
+  ], // IoC Container'daki Dependency Injection'ları tanımlar
   bootstrap: [AppComponent], // Hangi bileşenin ilk açıldığında çalışacağını belirtir
 })
 export class AppModule {}

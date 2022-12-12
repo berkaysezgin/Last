@@ -10,7 +10,9 @@ export class IfNotDirective implements OnInit{
   private condition=false;
   // ViewContainerRef => direktifin uygulandığı elementin kendisi (parent)
   // TemplateRef => direktifin uygulandığı elementin altındaki elementler (childlar)
-  constructor(private _viewContainer:ViewContainerRef,private templateRef:TemplateRef<any>) { }
+  constructor(
+    private _viewContainer:ViewContainerRef,
+    private templateRef:TemplateRef<any>) { }
 @Input()
 set ngIfNot(condition:boolean){
   //=> gelen condition(boolean) false ise elemanları göster

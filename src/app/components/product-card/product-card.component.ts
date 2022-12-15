@@ -14,6 +14,7 @@ export class ProductCardComponent {
 @Output() onAddtoCartClick=new EventEmitter<Products>();
 
 addToCartClick(){
+  
   // Parent componenti uyar!!
     // Event emitter'i triggerla
     // emit et

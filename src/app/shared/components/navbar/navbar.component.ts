@@ -1,3 +1,5 @@
+import { CartItem } from 'src/app/models/cartItem';
+import { CartService } from 'src/app/services/cart.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,6 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+
 navItems: any[]=[
   {
     label:'Home',
@@ -18,6 +21,11 @@ navItems: any[]=[
     routerLink:'login',
     isRouterActiveExact:false,
   },
+   {
+     label:'MyCart',
+    routerLink:'carts',
+     isRouterActiveExact:true,
+  }
 
 ];
 

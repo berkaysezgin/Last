@@ -23,6 +23,6 @@ constructor() { }
   stopLoading(){
     setTimeout(() => {
       this.isLoadingSubject.next(false)
-    }, 3000);
+    }, 500);
   }
 }

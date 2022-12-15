@@ -1,6 +1,7 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
+import { CartService } from 'src/app/services/cart.service';
 import { FormGroup } from '@angular/forms';
 import { GetListOptionsType } from './../../models/get-list-options';
 import { NumberSymbol } from '@angular/common';
@@ -66,7 +67,8 @@ export class ProductListComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private cartService:CartService,
   ) {}
 
   ngOnInit(): void {
@@ -109,10 +111,12 @@ export class ProductListComponent implements OnInit {
     });
   }
   addToCartClick(product: Products) {
+     this.cartService.addToCart(product).subscribe((response)=>{
+  })
     console.log(
-      'ProductListComponentden sepete eklenmesi istenen ürün:',
+       'ProductListComponentden sepete eklenmesi istenen ürün:',
       product
-    );
+   );
   }
   addToStockClick(product:Products){
 

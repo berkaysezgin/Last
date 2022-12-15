@@ -1,5 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 
+import { CartComponent } from './pages/cart/cart.component';
 import { CategoryFormPageComponent } from './pages/category-form-page/category-form-page.component';
 import { DashboardCategoriesListComponent } from './components/dashboard-categories-list/dashboard-categories-list.component';
 import { DashboardCategoriesPageComponent } from './pages/dashboard-categories-page/dashboard-categories-page.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
 {path:'category/:categoryId',component:HomePageComponent},
 {path:'login',component:LoginPageComponent},
 {path:'dashboard/products',component:DashboardProductsPageComponent},
+{path:'carts',component:CartComponent},
 {path: 'dashboard', // Grand Parent route
   
 children: [
@@ -23,6 +25,7 @@ children: [
       {path:'',pathMatch:"full",component: DashboardProductsPageComponent},
       { path: 'add', component: ProductFormPageComponent },
       { path: 'edit/:productId', component: ProductFormPageComponent },
+      
     ],
   },
 ],},

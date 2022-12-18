@@ -1,4 +1,4 @@
-import { FilterCategoryIdPipe } from './filter-category-id.pipe';
+import { FilterCategoryIdPipe } from '../features/products/pipes/filter-category-id.pipe';
 
 describe('FilterCategoryIdPipe', () => {
   it('create an instance', () => {

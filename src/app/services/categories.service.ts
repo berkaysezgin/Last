@@ -1,8 +1,9 @@
-import { Category } from '../models/category';
+import { Category } from '../features/categories/models/category';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+
 //:Injectable, bir clas'ın IoC'e katılması ve injectable olmasını sağlar.Dependency Injection mekanizmasını 
 //kullanarak servisin referansını alabiliriz.
 @Injectable({

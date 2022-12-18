@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { LoadingService } from './services/loading.service';
+import { LoadingService } from './core/services/loading.service';
 
 @Component({
   selector: 'app-root',//Html tarafındaki etiketi tanımlar

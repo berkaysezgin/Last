@@ -9,8 +9,10 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NgModule } from '@angular/core';
 import { SharedRoutingModule } from './shared-routing.module';
+import { StoreModule } from '@ngrx/store';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { sharedReducers } from './store/shared.reducers';
 
 @NgModule({
   declarations: [NavbarComponent,
@@ -26,7 +28,8 @@ TodoListComponent,
     SharedRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    StoreModule.forRoot(sharedReducers), 
   ],
   exports:[NavbarComponent,MainLayoutComponent,HighlightDirective,ButtonDirective],
 })

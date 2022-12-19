@@ -116,7 +116,7 @@ export class ProductListComponent implements OnInit {
     // cartService'den add metodunu çağır..
    let cartItem:CartItem={
     product:product,quantity:1};
-    this.cartService.add(cartItem);
+    this.cartService.addState(cartItem);
    }
   
   addToStockClick(product:Products){

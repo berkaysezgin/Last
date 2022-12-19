@@ -14,11 +14,11 @@ ngOnInit(){
 this.subscribeToCartService();
 }
   subscribeToCartService() {
-    this.cartService.cartItems.subscribe((response)=>{
+    this.cartService.cartItemModel$.subscribe((response)=>{
       this.cartItems=response;
     })
   }
   removeItem(cartItem:CartItem){
-    if(cartItem.id)this.cartService.remove(cartItem.id)
+    if(cartItem.id)this.cartService.removeState(cartItem.id)
   }
 }

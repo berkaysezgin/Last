@@ -31,9 +31,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductFormPageComponent } from './features/products/pages/product-form-page/product-form-page.component';
 import { ProductsModule } from './features/products/products.module';
 import { SharedModule } from './shared/shared.module';
+import { StoreModule } from '@ngrx/store';
 import { ToastrModule } from 'ngx-toastr';
 import { TodoItemComponent } from './shared/components/todo-item/todo-item.component';
 import { TodoListComponent } from './shared/components/todo-list/todo-list.component';
+import { sharedReducers } from './shared/store/shared.reducers';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,13 @@ import { TodoListComponent } from './shared/components/todo-list/todo-list.compo
      ReactiveFormsModule,
      CommonModule,
      BrowserAnimationsModule, 
-     ToastrModule.forRoot(), CoreModule, SharedModule, ProductsModule, CategoriesModule, CartModule, 
+     ToastrModule.forRoot(),
+      CoreModule,
+       SharedModule,
+        ProductsModule,
+         CategoriesModule,
+          CartModule,
+         
   ], //ANgular modülleri import edeceğimiz yer
   exports:[],
   providers: [
